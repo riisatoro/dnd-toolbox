@@ -1,0 +1,24 @@
+services:
+  dnd-toolboc-web:
+    container_name: dnd-toolbox-web
+    build: ./src
+    ports:
+      - "${FASTAPI_PORT}:${FASTAPI_PORT}"
+    volumes:
+      - ./src:/app
+    env_file:
+      - .env
+
+  dnd-toolbox-db:
+    image: postgres:16-alpine
+    container_name: dnd-toolbox-db
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - .env
