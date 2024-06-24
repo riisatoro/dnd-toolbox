@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sign Up</h1>
+    <form action="/auth/signup" method="post">
+        {% if error_message %}
+        <p>{{error_message}}</p>
+        {% endif %}
+        {% if success_message %}
+        <p>{{success_message}}</p>
+        {% endif %}
+
+        </div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+
+        <label for="confirm_password">Confirm password</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+<p>Already have an account?</p>
+<a href="/auth/signin">Login</a>
+{% endblock %}

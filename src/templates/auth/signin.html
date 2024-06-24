@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="/auth/signin" method="post">
+        {% if error_message %}
+        <p>{{error_message}}</p>
+        {% endif %}
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Sign In</button>
+    </form>
+<a href="/auth/signup">Create a new account</a>
+{% endblock %}

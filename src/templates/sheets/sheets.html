@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Your characters, players and enemies</h1>
+    <a href="/sheets/new">Create a new character</a>
+    {% for sheet in sheets %}
+    <div>
+        <a href="/sheets/{{sheet.id}}">{{ sheet.name }}</a>
+    </div>
+    {% endfor %}
+{% endblock %}

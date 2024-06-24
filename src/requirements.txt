@@ -1,6 +1,8 @@
 fastapi
 jinja2
 sqlalchemy
-jwt
+pyjwt
 alembic
 psycopg2-binary
+python-multipart
+bcrypt

@@ -1,9 +1,10 @@
 import os
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from exceptions.authorization import NotAuthorizedError
+from views import router
 
 
 app = FastAPI(
@@ -25,4 +26,7 @@ app.add_middleware(
 
 @app.exception_handler(NotAuthorizedError)
 def handle_not_authorized_error(_, __):
-    return JSONResponse({"detail": "Not authorized"}, status_code=401)
+    return RedirectResponse("/auth/signin", 303)
+
+
+app.include_router(router)
