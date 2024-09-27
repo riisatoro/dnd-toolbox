@@ -28,6 +28,7 @@ def get_character_sheet(
         "base": "character_sheet/base.html",
         "combat": "character_sheet/combat.html",
         "abilities": "character_sheet/abilities.html",
+        "inventory": "character_sheet/inventory.html",
     }
 
     return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.render()})
@@ -118,3 +119,27 @@ def add_consumable(
     sheet = get_sheet(character_id)
     sheet.add_consumable(consumable)
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/add_coins")
+def add_coins(
+        request: Request,
+        character_id: str,
+        coins: int = Form(...),
+        coin_type: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.add_coins(coin_type, coins)
+    return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/remove_coins")
+def remove_coins(
+        request: Request,
+        character_id: str,
+        coins: int = Form(...),
+        coin_type: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.remove_coins(coin_type, coins)
+    return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)

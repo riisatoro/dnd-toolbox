@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block title %}Character Sheet{% endblock %}
+{% block content %}
+<main class="max-w-[600px] m-auto">
+    {% include 'character_sheet/components/heading.html' %}
+    {% include 'character_sheet/components/coins.html' %}
+    {% include 'character_sheet/components/inventory_list.html' %}
+    {% include 'character_sheet/navigation.html' %}
+</main>
+{% endblock %}

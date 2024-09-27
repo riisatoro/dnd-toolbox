@@ -177,12 +177,24 @@ class Abilities:
         return self.data["abilities.json"]
 
 
+class Inventory:
+    def render_inventory(self) -> dict:
+        return self.data["inventory.json"]
+    
+    def add_coin(self, key: str, value: int) -> None:
+        pass
+    
+    def remove_coin(self, key: str, value: int) -> None:
+        pass
+
+
 class CharacterSheet(
     IO,
     Abilities,
     Character,
     Combat,
     Consumables,
+    Inventory,
     MeleeAttack,
     Skills,
     Spells,
@@ -200,6 +212,7 @@ class CharacterSheet(
             "character": self.render_character(),
             "combat": self.render_combat(),
             "consumables": self.render_consumables(),
+            "inventory": self.render_inventory(),
             "melee": self.render_melee(),
             "skills": self.render_skills(),
             "spells": self.render_spells(),

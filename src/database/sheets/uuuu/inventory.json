@@ -1,0 +1,33 @@
+{
+    "coins": {
+        "copper": 0,
+        "silver": 7,
+        "gold": 23,
+        "platinum": 0
+    },
+    "items": {
+        "Leather Armor": {
+            "description": "11 + DEX AC"
+        },
+        "Long Bow": {},
+        "Summer and Winter Clothes": {},
+        "Travelers Set": {
+            "description": "Backpack, bedroll, tinderbox, dishes, flask"
+        },
+        "Torches": {
+            "value": 10
+        },
+        "Rations": {
+            "value": 10
+        },
+        "Potion of Sleep": {
+            "value": 1
+        },
+        "Green Apple": {
+            "value": 1
+        },
+        "Back with Elf Ear Jerky": {
+            "description": "Got it from the Gnolls"
+        }
+    }
+}

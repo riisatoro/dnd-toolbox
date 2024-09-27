@@ -1,0 +1,35 @@
+{% with values=data.inventory.coins %}
+<div class="grid grid-cols-4 text-center">
+    {% for coin, value in values.items() %}
+    <div class="border-2 border-white rounded m-1 p-2">
+        <p class="text-xl">{{ value }}</p>
+        <p class="capitalize">{{ coin }}</p>
+    </div>
+    {% endfor %}
+</div>
+<div class="flex gap-2 mt-2 justify-center">
+    <button class="border-2 border-red-500 text-xl px-2" onsubmit="submitForm('/character/{{ data.uuid }}/remove_coins')">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+    </button>
+    <form id="coins" method="POST">
+        <input class="border-2 border-white bg-zinc-800 w-[100px] h-[50px] p-1" type="number" name="coins" min="0" step="1" placeholder="Coins">
+        <select name="coin_type" class="border-2 border-white bg-zinc-800 w-[120px] h-[50px] p-1">
+            <option value="copper">Copper</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+            <option value="platinum">Platinum</option>
+        </select>
+    </form>
+    <button class="border-2 border-green-500 text-xl px-2" onsubmit="submitForm('/character/{{ data.uuid }}/add_coins')">
+        <i class="fa-solid fa-piggy-bank"></i>
+    </button>
+</div>
+{% endwith %}
+
+<script>
+    function submitForm(endpoint) {
+        const form = document.getElementById('coins');
+        form.action = endpoint;
+        form.submit();
+    }
+</script>
