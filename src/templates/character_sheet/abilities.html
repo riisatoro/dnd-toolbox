@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% include 'character_sheet/components/heading.html' %}
+    {% with values=data.abilities %}
+    <div>
+        <p class="text-xl my-2 text-center">Proficiencies</p>
+        <hr />
+        {% for name, description in values.proficiencies.items() %}
+            <p class="text-lg underline text-green-500 mt-2">{{ name }}</p>
+            <p class="ml-2">{% for option in description %}{{ option }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+        {% endfor %}
+    </div>
+    {% endwith %}
+    {% with values=data.abilities %}
+    <div>
+        <p class="text-xl my-2 text-center">Abilities</p>
+        <hr />
+        {% for name, description in values.abilities.items() %}
+            <p class="text-lg underline text-green-500 mt-2">{{ name }}</p>
+            <ul class="ml-5 list-disc">
+                {% for option in description %}
+                    <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+    {% endwith %}
+    {% include 'character_sheet/navigation.html' %}
+{% endblock %}

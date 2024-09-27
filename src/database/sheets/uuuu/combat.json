@@ -14,8 +14,8 @@
         }
     ],
     "health": {
-        "value": 30,
+        "value": 39,
         "total": 39,
-        "temporary": 3
+        "temporary": 0
     }
 }

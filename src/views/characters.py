@@ -27,6 +27,7 @@ def get_character_sheet(
     template_mapper = {
         "base": "character_sheet/base.html",
         "combat": "character_sheet/combat.html",
+        "abilities": "character_sheet/abilities.html",
     }
 
     return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.render()})

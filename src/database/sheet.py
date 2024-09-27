@@ -172,8 +172,14 @@ class Skills:
         }
 
 
+class Abilities:
+    def render_abilities(self) -> dict:
+        return self.data["abilities.json"]
+
+
 class CharacterSheet(
     IO,
+    Abilities,
     Character,
     Combat,
     Consumables,
@@ -190,6 +196,7 @@ class CharacterSheet(
     def render(self) -> dict:
         return {
             "uuid": self.uuid,
+            "abilities": self.render_abilities(),
             "character": self.render_character(),
             "combat": self.render_combat(),
             "consumables": self.render_consumables(),

@@ -1,0 +1,52 @@
+{
+    "proficiencies": {
+        "Weapon and Armor": [
+            "Light Armor",
+            "Medium Armor",
+            "Shields",
+            "Simple Weapons",
+            "Martial Weapons"
+        ],
+        "Languages": [
+            "Common",
+            "Elvish",
+            "Dwarvish",
+            "Draconian"
+        ],
+        "Tools": [
+            "Thieves Tools",
+            "Land Transport",
+            "Leather worker Tools"
+        ]
+    },
+    "abilities": {
+        "Favorite Foe (Ranger)": [
+            "on hit, mark target to deal additional damage",
+            "each next hit once a turn deals additional damage",
+            "you can mark amount of enemies equals to your proficiency bonus until long rest",
+            "deal 1d4 on 1st, 1d6 on 6th, 1d8 on 14th levels in this class"
+        ],
+        "Deft Explorer (Ranger)": [
+            "gain knowledge of 2 languages, and double proficiency on 1 skill (lvl 1)",
+            "gain additional 5ft. of movement, crawling and swimming speed equal to your movement (lvl 6)",
+            "as an action, gain 1d8 + WIS mod. temporary hit points, in total amount of your proficiency bonus until long rest (lvl 10)",
+            "remove 1 level of exhaustion after short rest (lvl 10)"
+        ],
+        "Fighting Style (Ranger)": [
+            "archery: gain +2 to hit with ranged weapons"
+        ],
+        "Expertise (Rogue)": [
+            "choose 2 skills, or 1 skill and thieves tools to gain double proficiency bonus"
+        ],
+        "Sneak Attack (Rogue)": [
+            "on hit, deal additional 1d6 damage for every 2 lvl of this class",
+            "you should have advantage on attack, or an ally should be within 5 ft. of the target and enemy should not be incapacitated"
+        ],
+        "Thieves Cant (Rogue)": [
+            "gain knowledge of thieves cant language"
+        ],
+        "Cunning Action (Rogue)": [
+            "as a bonus action, dash, disengage or hide"
+        ]
+    }
+}
