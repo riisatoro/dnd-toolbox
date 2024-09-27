@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}Character Sheet{% endblock %}
+{% block content %}
+<main class="max-w-[600px] m-auto">
+    {% include 'character_sheet/components/heading.html' %}
+    {% include 'character_sheet/components/battle_stats.html' %}
+    {% include 'character_sheet/components/hp_form.html' %}
+    {% include 'character_sheet/components/meele_attacks.html' %}
+    {% include 'character_sheet/components/spell_slots.html' %}
+    {% include 'character_sheet/navigation.html' %}
+</main>
+{% endblock %}

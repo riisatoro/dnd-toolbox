@@ -1,0 +1,10 @@
+<div class="mt-5 grid grid-cols-3 justify-evenly gap-2 text-center">
+    {% for stat in data.render_stats %}
+    <div>
+        <div class="border-2 {% if stat.saving %}border-green-500{% else %}border-white{% endif %} content-center text-xl">
+            <p>{% if stat.modifier > 0 %}+ {% endif %}{{ stat.modifier }} {% if stat.saving %} / <span class="text-green-500">+ {{ stat.saving }}</span>{% endif %} </p>
+            <p>{{ stat.name }} ({{stat.value}})</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

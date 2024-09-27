@@ -1,0 +1,16 @@
+<div class="mt-5 grid grid-cols-2">
+    {% for skill in data.render_skills %}
+    <div class="flex border-b border-white p-1 px-2">
+        <div class="w-[130px]">{{ skill.name }}</div>
+        <div>{{ skill.modifier }}</div>
+        <div class="ml-2">
+            {% if skill.expertise %}
+            <i class="fa-solid fa-check-double"></i>
+            {% elif skill.proficient %}
+            <i class="fa-solid fa-check"></i>
+            {% else %}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>

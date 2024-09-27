@@ -1,0 +1,23 @@
+<div class="text-xl">
+    <div class="flex gap-2 justify-center align-center">
+        <div class="border-2 border-white p-2">
+            <p>{{ data.combat_info.armor_class }} AC</p>
+            <p class="text-sm text-center"></p>
+        </div>
+        <div class="flex border-2 border-white p-2 {% if data.combat_info.health_temp %}text-base{% endif %} items-center">
+            <div>{{ data.combat_info.health_current }}</div>
+            {% if data.combat_info.health_temp %}<div>+{{ data.combat_info.health_temp }}</div>{% endif %}
+            /
+            <div>{{ data.combat_info.health_total }} HP</div>
+        </div>
+        <div class="border-2 border-white p-2">
+            <p>{{ data.combat_info.speed }} ft.</p>
+        </div>
+        <div class="text-xs border-2 border-white p-2">
+            {% for hp_dice in data.combat_info.hp_dices %}
+            {{hp_dice.current}} / {{hp_dice.total}} {{hp_dice.type}}
+            <br />
+            {% endfor %}
+        </div>
+    </div>
+</div>

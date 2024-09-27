@@ -1,0 +1,202 @@
+{
+    "uuuu": {
+        "alignment": "Chaotic Good",
+        "avatar": "/static/avatars/avatar.png",
+        "background": "Treasure Hunter",
+        "classes": [
+            {
+                "level": 2,
+                "name": "Ranger"
+            },
+            {
+                "level": 2,
+                "name": "Rogue"
+            }
+        ],
+        "combat_info": {
+            "armor_class": 14,
+            "health_current": 31,
+            "health_temp": 0,
+            "health_total": 39,
+            "hp_dices": [
+                {
+                    "current": 2,
+                    "total": 2,
+                    "type": "d10"
+                },
+                {
+                    "current": 2,
+                    "total": 2,
+                    "type": "d8"
+                }
+            ],
+            "initiative": 3,
+            "speed": 30
+        },
+        "death_saves": {
+            "fail": 0,
+            "success": 0
+        },
+        "inspiration": 0,
+        "melee_attacks": [
+            {
+                "additional_to_hit": 2,
+                "damage": "1d6",
+                "distance": "80/320 ft",
+                "name": "Short Bow",
+                "proficient": true,
+                "stat": "DEX",
+                "type": "piercing"
+            },
+            {
+                "damage": "1d4",
+                "distance": "5 ft",
+                "name": "Dagger x2",
+                "proficient": true,
+                "stat": "DEX",
+                "type": "piercing"
+            }
+        ],
+        "name": "Chavka The Free Cobold",
+        "race": "Cobold",
+        "skills": {
+            "Acrobatics": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Animal Handling": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Arcana": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Athletics": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Deception": {
+                "expertise": false,
+                "proficient": false
+            },
+            "History": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Insight": {
+                "expertise": false,
+                "proficient": true
+            },
+            "Intimidation": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Investigation": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Medicine": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Nature": {
+                "expertise": false,
+                "proficient": true
+            },
+            "Perception": {
+                "expertise": true,
+                "proficient": true
+            },
+            "Performance": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Persuasion": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Religion": {
+                "expertise": false,
+                "proficient": false
+            },
+            "Sleight of Hand": {
+                "expertise": true,
+                "proficient": true
+            },
+            "Stealth": {
+                "expertise": true,
+                "proficient": true
+            },
+            "Survival": {
+                "expertise": false,
+                "proficient": true
+            }
+        },
+        "spell_slots": {
+            "1": {
+                "current": 1,
+                "total": 2
+            },
+            "2": {
+                "current": 0,
+                "total": 0
+            },
+            "3": {
+                "current": 0,
+                "total": 0
+            },
+            "4": {
+                "current": 0,
+                "total": 0
+            },
+            "5": {
+                "current": 0,
+                "total": 0
+            },
+            "6": {
+                "current": 0,
+                "total": 0
+            },
+            "7": {
+                "current": 0,
+                "total": 0
+            },
+            "8": {
+                "current": 0,
+                "total": 0
+            },
+            "9": {
+                "current": 0,
+                "total": 0
+            }
+        },
+        "spell_stat": "WIS",
+        "stats": {
+            "CHA": {
+                "saving": false,
+                "value": 12
+            },
+            "CON": {
+                "saving": false,
+                "value": 14
+            },
+            "DEX": {
+                "saving": true,
+                "value": 17
+            },
+            "INT": {
+                "saving": false,
+                "value": 10
+            },
+            "STR": {
+                "saving": true,
+                "value": 9
+            },
+            "WIS": {
+                "saving": false,
+                "value": 16
+            }
+        }
+    }
+}

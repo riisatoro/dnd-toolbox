@@ -1,0 +1,9 @@
+services:
+  dnd-toolbox-web:
+    container_name: dnd-toolbox-web
+    build: ./src
+    ports:
+      - "8000:8000"
+      - "80:8000"
+    volumes:
+      - ./src:/app

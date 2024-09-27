@@ -1,0 +1,33 @@
+<div class="mt-5">
+    <div class="flex justify-between">
+        <p class="text-xl mb-2">Spell Slots</p>
+        <p class="text-xl">Atk: + {{data.render_spells.to_hit }}</p>
+        <p class="text-xl">Save: {{ data.render_spells.saving }}</p>
+        <form action="/characters/{{ data.id }}/restore_spell_slots" method="POST">
+            <button class="text-white px-2 py-1" type="submit">Reset</button>
+        </form>
+    </div>
+
+    <hr/>
+    <div class="my-2">
+        {% for spell_info in data.render_spells.slots %}
+        <div class="flex">
+            <p class="text-xl pr-2">{{spell_info.level}} <sup>st</sup></p>
+            {% for slot in range(spell_info.total) %}
+                {% if slot < spell_info.current %}
+                <form action="/characters/{{ data.id }}/remove_spell_slot" method="POST">
+                    <input type="hidden" name="level" value="{{ spell_info.level }}">
+                    <button class="w-[35px] h-[35px]" type="submit">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                </form>
+                {% else %}
+                <button class="w-[35px] h-[35px]">
+                    <i class="fa-regular fa-star"></i>
+                </button>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

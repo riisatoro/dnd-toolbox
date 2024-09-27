@@ -1,0 +1,12 @@
+<div>
+    <p class="text-xl mb-2">Melee</p>
+    <hr />
+    {% for attack in data.render_melee_attacks %}
+    <div class="border-b border-white ml-5 my-1 grid grid-cols-4">
+        <p>{{ attack.name }}</p>
+        <p>+{{ attack.to_hit }} / +{{ attack.damage_bonus }}</p>
+        <p>{{ attack.distance }}</p>
+        <p>{{ attack.type }}</p>
+    </div>
+    {% endfor %}
+</div>

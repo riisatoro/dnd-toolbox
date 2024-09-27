@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}Character List{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Your characters</h1>
+    <hr />
+    <div class="p-5">
+    {% for character in characters %}
+        <a href="/characters/{{ character.id }}/base">
+            <div class="flex gap-2 border-b border-white">
+                <div>
+                    <img src="{{ character.avatar }}" class="max-w-[100px] rounded border-2 border-orange-500" />
+                    <div class="w-[30px] h-[30px] mx-auto border-2 border-orange-500 bg-black text-center relative bottom-5">{{ character.level }}</div>
+                </div>
+                <div>
+                    <h2>{{ character.name }}</h2>
+                    <p>{{ character.race }}, {% for class in character.classes %}{{ class.name }} ({{ class.level }}) {% endfor %}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
