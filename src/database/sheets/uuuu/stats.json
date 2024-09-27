@@ -1,0 +1,32 @@
+{
+    "STR": {
+        "name": "Strength",
+        "value": 9,
+        "saving": true
+    },
+    "DEX": {
+        "name": "Dexterity",
+        "value": 17,
+        "saving": true
+    },
+    "CON": {
+        "name": "Constitution",
+        "value": 14,
+        "saving": false
+    },
+    "INT": {
+        "name": "Intelligence",
+        "value": 10,
+        "saving": false
+    },
+    "WIS": {
+        "name": "Wisdom",
+        "value": 16,
+        "saving": false
+    },
+    "CHA": {
+        "name": "Charisma",
+        "value": 12,
+        "saving": false
+    }
+}

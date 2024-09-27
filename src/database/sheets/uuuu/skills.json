@@ -1,0 +1,128 @@
+{
+    "Acrobatics": {
+        "name": "Acrobatics",
+        "from_stat": "DEX",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Animal Handling": {
+        "name": "Animal Handling",
+        "from_stat": "WIS",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Arcana": {
+        "name": "Arcana",
+        "from_stat": "INT",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Athletics": {
+        "name": "Athletics",
+        "from_stat": "STR",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Deception": {
+        "name": "Deception",
+        "from_stat": "CHA",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "History": {
+        "name": "History",
+        "from_stat": "INT",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Insight": {
+        "name": "Insight",
+        "from_stat": "WIS",
+        "proficient": true,
+        "expertise": false,
+        "custom": 0
+    },
+    "Intimidation": {
+        "name": "Intimidation",
+        "from_stat": "CHA",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Investigation": {
+        "name": "Investigation",
+        "from_stat": "INT",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Medicine": {
+        "name": "Medicine",
+        "from_stat": "WIS",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Nature": {
+        "name": "Nature",
+        "from_stat": "INT",
+        "proficient": true,
+        "expertise": false,
+        "custom": 0
+    },
+    "Perception": {
+        "name": "Perception",
+        "from_stat": "WIS",
+        "proficient": true,
+        "expertise": true,
+        "custom": 0
+    },
+    "Performance": {
+        "name": "Performance",
+        "from_stat": "CHA",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Persuasion": {
+        "name": "Persuasion",
+        "from_stat": "CHA",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Religion": {
+        "name": "Religion",
+        "from_stat": "INT",
+        "proficient": false,
+        "expertise": false,
+        "custom": 0
+    },
+    "Sleight of Hand": {
+        "name": "Sleight of Hand",
+        "from_stat": "DEX",
+        "proficient": true,
+        "expertise": true,
+        "custom": 0
+    },
+    "Stealth": {
+        "name": "Stealth",
+        "from_stat": "DEX",
+        "proficient": true,
+        "expertise": true,
+        "custom": 0
+    },
+    "Survival": {
+        "name": "Survival",
+        "from_stat": "WIS",
+        "proficient": true,
+        "expertise": false,
+        "custom": 0
+    }
+}

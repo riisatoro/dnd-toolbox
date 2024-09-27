@@ -15,7 +15,7 @@
         ],
         "combat_info": {
             "armor_class": 14,
-            "health_current": 31,
+            "health_current": 39,
             "health_temp": 0,
             "health_total": 39,
             "hp_dices": [
@@ -135,7 +135,7 @@
         },
         "spell_slots": {
             "1": {
-                "current": 1,
+                "current": 2,
                 "total": 2
             },
             "2": {
@@ -197,6 +197,134 @@
                 "saving": false,
                 "value": 16
             }
-        }
+        },
+        "armor_and_weapon": [
+            "Light Armor",
+            "Medium Armor",
+            "Shields",
+            "Simple Weapons",
+            "Martial Weapons"
+        ],
+        "proficiencies": [
+            "Thieves Tools",
+            "Land Transport",
+            "Leather worker Tools"
+        ],
+        "languages": [
+            "Common",
+            "Draconian",
+            "Elvish",
+            "Dwarfish"
+        ],
+        "abilities": [
+            {
+                "name": "Favorite Foe (Ranger)",
+                "description": [
+                    "on hit, mark target to deal additional damage",
+                    "each next hit once a turn deals additional damage",
+                    "you can mark amount of enemies equals to your proficiency bonus until long rest",
+                    "deal 1d4 on 1st, 1d6 on 6th, 1d8 on 14th levels in this class"
+                ]
+            },
+            {
+                "name": "Deft Explorer (Ranger)",
+                "description": [
+                    "gain knowledge of 2 languages, and double proficiency on 1 skill (lvl 1)",
+                    "gain additional 5ft. of movement, crawling and swimming speed equal to your movement (lvl 6)",
+                    "as an action, gain 1d8 + WIS mod. temporary hit points, in total amount of your proficiency bonus until long rest (lvl 10)",
+                    "remove 1 level of exhaustion after short rest (lvl 10)"
+                ]
+            },
+            {
+                "name": "Fighting Style (Ranger)",
+                "description": [
+                    "archery: gain +2 to hit with ranged weapons"
+                ]
+            },
+            {
+                "name": "Expertise (Rogue)",
+                "description": [
+                    "choose 2 skills, or 1 skill and thieves tools to gain double proficiency bonus"
+                ]
+            },
+            {
+                "name": "Sneak Attack (Rogue)",
+                "description": [
+                    "on hit, deal additional 1d6 damage for every 2 lvl of this class",
+                    "you should have advantage on attack, or an ally should be within 5 ft. of the target and enemy should not be incapacitated"
+                ]
+            },
+            {
+                "name": "Thieves Cant (Rogue)",
+                "description": [
+                    "gain knowledge of thieves cant language"
+                ]
+            },
+            {
+                "name": "Cunning Action (Rogue)",
+                "description": [
+                    "as a bonus action, dash, disengage or hide"
+                ]
+            }
+        ],
+        "resources": [
+            {
+                "name": "Favorite Foe",
+                "value": 2
+            }
+        ],
+        "inventory": [
+            {
+                "name": "Arrows",
+                "value": 36
+            },
+            {
+                "name": "Bracelet of Animal Speaking",
+                "value": 1,
+                "total": 7,
+                "description": "Allows use of Speak with Animals spell, restores 1d4 charges at dawn."
+            },
+            {
+                "name": "Torches",
+                "value": 10
+            },
+            {
+                "name": "Rations",
+                "value": 10
+            },
+            {
+                "name": "Green apple",
+                "value": 1
+            },
+            {
+                "name": "Little bag of elven ear jerks",
+                "value": 1
+            }
+        ],
+        "coins": {
+            "platinum": 0,
+            "gold": 23,
+            "electrum": 0,
+            "silver": 7,
+            "copper": 0
+        },
+        "other_features": [
+            {
+                "name":  "Dark vision 60 ft.",
+                "description": ""
+            },
+            {
+                "name":  "Pack Tactics",
+                "description": "Advantage on attack if an ally is within 5 ft. of the target."
+            },
+            {
+                "name":  "Sunlight Sensitivity",
+                "description": "Disadvantage on attack and perception checks in direct sunlight."
+            },
+            {
+                "name": "Beg, Crawl, Cry",
+                "description": "As an action, start crying and begging for mercy. Allies have an advantage against enemies within 10 ft. of you."
+            }
+        ]
     }
 }

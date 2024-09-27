@@ -1,0 +1,10 @@
+{
+    "cast_from": "WIS",
+    "spell_slots": {
+        "1": {
+            "level": 1,
+            "value": 2,
+            "total": 2
+        }
+    }
+}

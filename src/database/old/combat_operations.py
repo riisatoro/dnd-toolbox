@@ -36,6 +36,10 @@ class CharacterCompat:
         for slot in self.spell_slots.values():
             slot["current"] = slot["total"]
 
+    def add_spell_slot(self, level: str):
+        if self.spell_slots[level]["current"] < self.spell_slots[level]["total"]:
+            self.spell_slots[level]["current"] += 1
+
     def remove_spell_slot(self, level: str):
         if self.spell_slots[level]["current"] > 0:
             self.spell_slots[level]["current"] -= 1

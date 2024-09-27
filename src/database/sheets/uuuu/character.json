@@ -1,0 +1,18 @@
+{
+    "race": "Cobold",
+    "name": "Chavka the Free Cobold",
+    "alignment": "Chaotic Good",
+    "background": "Trophy Hunter",
+    "inspiration": 0,
+    "classes": [
+        {
+            "name": "Ranger",
+            "level": 2
+        },
+        {
+            "name": "Rogue",
+            "level": 2
+        }
+    ],
+    "avatar": "/static/avatars/avatar.png"
+}

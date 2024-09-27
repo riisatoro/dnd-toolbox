@@ -1,0 +1,28 @@
+{% with values=data.consumables %}
+<div>
+    <p class="text-xl my-2">Consumables</p>
+    <hr />
+    {% for name, consumable in values.items() %}
+    <div class="border-b border-white ml-5 my-1 grid grid-cols-4 mb-1 pb-1">
+        <p class="col-span-2">{{ name }}: {{ consumable.value }} {% if consumable.total %}/ {{consumable.total}}{% endif %}</p>
+        
+        <div class="flex gap-1">
+            <form action="/characters/{{ data.uuid }}/remove_consumable" method="POST">
+                <input type="hidden" name="consumable" value="{{ name }}">
+                <button class="border-2 border-red-500 w-[30px]">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </form>
+            <form action="/characters/{{ data.uuid }}/add_consumable" method="POST">
+                <input type="hidden" name="consumable" value="{{ name }}">
+                <button class="border-2 border-green-500 w-[35px]">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </form>
+        </div>
+        
+        <p class="text-right">{% if consumable.total %}{{ consumable.reset_rule }}{% endif %}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endwith %}

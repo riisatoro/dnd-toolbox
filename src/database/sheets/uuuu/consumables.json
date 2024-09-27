@@ -1,0 +1,15 @@
+{
+    "Favorite Foe": {
+        "value": 2,
+        "total": 2,
+        "reset_rule": "long rest"
+    },
+    "Bracelet of the Animal Speaking": {
+        "value": 4,
+        "total": 7,
+        "reset_rule": "d4/dawn"
+    },
+    "Arrows": {
+        "value": 36
+    }
+}

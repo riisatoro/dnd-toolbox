@@ -1,12 +1,14 @@
+{% with values=data.melee %}
 <div>
     <p class="text-xl mb-2">Melee</p>
     <hr />
-    {% for attack in data.render_melee_attacks %}
+    {% for name, attack in values.items() %}
     <div class="border-b border-white ml-5 my-1 grid grid-cols-4">
-        <p>{{ attack.name }}</p>
-        <p>+{{ attack.to_hit }} / +{{ attack.damage_bonus }}</p>
-        <p>{{ attack.distance }}</p>
-        <p>{{ attack.type }}</p>
+        <p>{{ name }}</p>
+        <p>+{{ attack.hit_bonus }} / {{attack.damage}}+{{ attack.damage_bonus }}</p>
+        <p class="text-right">{{ attack.distance }}</p>
+        <p class="text-right">{{ attack.damage_type }}</p>
     </div>
     {% endfor %}
 </div>
+{% endwith %}

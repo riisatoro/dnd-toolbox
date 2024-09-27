@@ -1,14 +1,18 @@
+{% with values = data.character %}
 <div>
     <div class="flex gap-2">
         <div>
-            <img src="{{ data.avatar }}" class="max-w-[100px] rounded border-2 border-orange-500" />
-            <div class="w-[30px] h-[30px] mx-auto border-2 border-orange-500 bg-black text-center relative bottom-5">{{ data.total_level }}</div>
+            <img src="{{ values.avatar }}" class="max-w-[100px] rounded border-2 border-orange-500" />
+            <div class="w-[30px] h-[30px] mx-auto border-2 border-orange-500 bg-black text-center relative bottom-5">{{ values.total_level }}</div>
         </div>
         <div>
-            <p class="text-xl border-b-2 mb-2">{{ data.name }}</p>
-            <p>{{ data.race_class_text }}</p>
-            <p>Prof. bonus: +{{ data.proficiency_bonus }}</p>
-            {% if data.inspiration %}<p>Inspiration: +{{ data.inspiration }}</p>{% endif %}
+            <p class="text-xl border-b-2 mb-2">{{ values.name }}</p>
+            <p>{{ values.race_class_text }}</p>
+            <p>{{ values.alignment }}</p>
+            <p>Prof. bonus: +{{ values.proficiency_bonus }}</p>
+            {% if values.inspiration %}<p>Inspiration: +{{ values.inspiration }}</p>{% endif %}
+            <p>{% for class in values.classes %}{{class.name}} ({{class.level}}) {% endfor %}</p>
         </div>
     </div>
 </div>
+{% endwith %}

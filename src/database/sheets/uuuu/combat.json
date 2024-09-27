@@ -1,0 +1,21 @@
+{
+    "speed": 30,
+    "armor": 14,
+    "hit_dices": [
+        {
+            "type": "d10",
+            "value": 2,
+            "total": 2
+        },
+        {
+            "type": "d8",
+            "value": 2,
+            "total": 2
+        }
+    ],
+    "health": {
+        "value": 30,
+        "total": 39,
+        "temporary": 3
+    }
+}

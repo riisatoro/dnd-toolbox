@@ -1,17 +1,17 @@
 <div class="flex gap-2 p-3 justify-center">
     <form method="POST" id="health_form">
         <button class="border-2 border-green-500 w-[35px] h-[35px]"
-                onclick="submitForm('/characters/{{ data.id }}/add_health')">
+                onclick="submitForm('/characters/{{ data.uuid }}/add_health')">
             <i class="fa-solid fa-heart"></i>
         </button>
         <input class="bg-zinc-800 text-center border-2 border-white h-9" type="number" name="health" min="0" step="1"
                placeholder="Adjust health">
         <button class="border-2 border-red-500 w-[35px] h-[35px]"
-                onclick="submitForm('/characters/{{ data.id }}/add_damage')">
+                onclick="submitForm('/characters/{{ data.uuid }}/add_damage')">
             <i class="fa-solid fa-heart-crack"></i>
         </button>
         <button class="border-2 border-blue-500 w-[35px] h-[35px]"
-                onclick="submitForm('/characters/{{ data.id }}/add_temporary_hp')">
+                onclick="submitForm('/characters/{{ data.uuid }}/add_temporary_hp')">
             <i class="fa-solid fa-shield-heart"></i>
         </button>
     </form>

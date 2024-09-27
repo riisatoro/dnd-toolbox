@@ -29,7 +29,7 @@ def get_character_sheet(
         "combat": "character_sheet/combat.html",
     }
 
-    return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.to_render()})
+    return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.render()})
 
 
 @router.post("/{character_id}/add_health")
@@ -61,7 +61,18 @@ def add_character_temporary_hp(
         health: int = Form(...),
 ):
     sheet = get_sheet(character_id)
-    sheet.add_temporary_hp(health)
+    sheet.add_temporary(health)
+    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/add_spell_slot")
+def add_spell_slot(
+        request: Request,
+        character_id: str,
+        level: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.add_spell_slot(level)
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
@@ -83,4 +94,26 @@ def restore_spell_slots(
 ):
     sheet = get_sheet(character_id)
     sheet.restore_spell_slots()
+    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/remove_consumable")
+def remove_consumable(
+        request: Request,
+        character_id: str,
+        consumable: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.remove_consumable(consumable)
+    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/add_consumable")
+def add_consumable(
+        request: Request,
+        character_id: str,
+        consumable: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.add_consumable(consumable)
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)

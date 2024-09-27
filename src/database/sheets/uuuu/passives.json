@@ -1,0 +1,14 @@
+{
+    "Perception": {
+        "from_skill": "Perception",
+        "custom": 0
+    },
+    "Investigation": {
+        "from_skill": "Investigation",
+        "custom": 0
+    },
+    "Insight": {
+        "from_skill": "Insight",
+        "custom": 0
+    }
+}
