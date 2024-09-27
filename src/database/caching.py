@@ -17,6 +17,6 @@ def get_sheet(uuid: str) -> CharacterSheet:
 def save_sheet(uuid: str) -> None:
     sheet = cache.get(uuid)
     if sheet:
-        sheet.save()
+        sheet.write_to_file()
     else:
         raise ValueError(f"Sheet with uuid {uuid} not found in cache")
