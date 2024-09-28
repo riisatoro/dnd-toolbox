@@ -29,6 +29,7 @@ def get_character_sheet(
         "combat": "character_sheet/combat.html",
         "abilities": "character_sheet/abilities.html",
         "inventory": "character_sheet/inventory.html",
+        "add_inventory_item": "character_sheet/add_inventory_item.html",
     }
 
     return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.render()})
@@ -142,4 +143,39 @@ def remove_coins(
 ):
     sheet = get_sheet(character_id)
     sheet.remove_coins(coin_type, coins)
+    return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/increase_inventory_item")
+def increase_inventory_item(
+        request: Request,
+        character_id: str,
+        item: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.increase_inventory_item(item)
+    return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/decrease_inventory_item")
+def decrease_inventory_item(
+        request: Request,
+        character_id: str,
+        item: str = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.decrease_inventory_item(item)
+    return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
+
+
+@router.post("/{character_id}/add_inventory_item")
+def add_inventory_item(
+        request: Request,
+        character_id: str,
+        item: str = Form(...),
+        value: int | None = Form(...),
+        description: str | None = Form(...),
+):
+    sheet = get_sheet(character_id)
+    sheet.add_inventory_item(item, value, description)
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)

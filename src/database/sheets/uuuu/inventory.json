@@ -2,10 +2,9 @@
     "coins": {
         "copper": 0,
         "silver": 7,
-        "gold": 23,
-        "platinum": 0
+        "gold": 23
     },
-    "items": {
+    "inventory": {
         "Leather Armor": {
             "description": "11 + DEX AC"
         },

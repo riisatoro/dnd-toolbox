@@ -178,14 +178,56 @@ class Abilities:
 
 
 class Inventory:
+    coin_to_copper_mapper = {
+        "gold": 100,
+        "silver": 10,
+        "copper": 1,
+    }
+    
     def render_inventory(self) -> dict:
         return self.data["inventory.json"]
     
-    def add_coin(self, key: str, value: int) -> None:
-        pass
+    def coins_to_copper(self) -> int:
+        return (
+            self.data["inventory.json"]["coins"]["gold"] * 100 +
+            self.data["inventory.json"]["coins"]["silver"] * 10 +
+            self.data["inventory.json"]["coins"]["copper"]
+        )
     
-    def remove_coin(self, key: str, value: int) -> None:
-        pass
+    def copper_to_coins(self, value: int) -> None:
+        self.data["inventory.json"]["coins"]["gold"] = value // 100
+        value %= 100
+
+        self.data["inventory.json"]["coins"]["silver"] = value // 10
+        value %= 10
+
+        self.data["inventory.json"]["coins"]["copper"] = value
+
+    def add_coins(self, key: str, value: int) -> None:
+        copper_coins = self.coin_to_copper_mapper[key] * value
+        copper_coins += self.coins_to_copper()
+        self.copper_to_coins(copper_coins)
+    
+    def remove_coins(self, key: str, value: int) -> None:
+        copper_coins = self.coin_to_copper_mapper[key] * value
+        copper_coins = self.coins_to_copper() - copper_coins
+        self.copper_to_coins(copper_coins)
+    
+    def increase_inventory_item(self, key: str) -> None:
+        self.data["inventory.json"]["inventory"][key]["value"] += 1
+    
+    def decrease_inventory_item(self, key: str) -> None:
+        if self.data["inventory.json"]["inventory"][key].get("value", 0) > 1:
+            self.data["inventory.json"]["inventory"][key]["value"] -= 1
+        else:
+            del self.data["inventory.json"]["inventory"][key]
+    
+    def add_inventory_item(self, key: str, value: int | None = None, description: str | None = None) -> None:
+        self.data["inventory.json"]["inventory"][key] = {}
+        if value:
+            self.data["inventory.json"]["inventory"][key]["value"] = value
+        if description:
+            self.data["inventory.json"]["inventory"][key]["description"] = description
 
 
 class CharacterSheet(

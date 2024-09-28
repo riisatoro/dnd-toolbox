@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block title %}Character Sheet{% endblock %}
+{% block content %}
+<main class="max-w-[600px] m-auto">
+    {% include 'character_sheet/components/heading.html' %}
+    
+    <form method="POST" action="/characters/{{ data.uuid }}/add_inventory_item">
+        <div>
+            <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="text" name="item" placeholder="Item">
+            <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="number" name="value" min="0" step="1" placeholder="Value">
+            <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="text" name="description" placeholder="Description">
+        </div>
+        <button class="border-2 border-green-500 text-xl px-2 mt-2" type="submit">
+            Create new item
+        </button>
+
+    {% include 'character_sheet/navigation.html' %}
+</main>
+{% endblock %}

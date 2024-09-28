@@ -4,8 +4,83 @@
 {% block content %}
 <main class="max-w-[600px] m-auto">
     {% include 'character_sheet/components/heading.html' %}
-    {% include 'character_sheet/components/coins.html' %}
-    {% include 'character_sheet/components/inventory_list.html' %}
+    
+    {% with values=data.inventory.coins %}
+    <div class="grid grid-cols-3 text-center">
+        {% for coin, value in values.items() %}
+        <div class="border-2 border-white rounded m-1 p-2">
+            <p class="text-xl">{{ value }}</p>
+            <p class="capitalize">{{ coin }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="flex gap-2 mt-2 justify-center">
+        <button class="border-2 border-red-500 text-xl px-2" onclick="submitForm('/characters/{{ data.uuid }}/remove_coins')">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+        </button>
+        <form id="coins" method="POST">
+            <input class="border-2 border-white bg-zinc-800 w-[100px] h-[50px] p-1" type="number" name="coins" min="0" step="1" placeholder="Coins">
+            <select name="coin_type" class="border-2 border-white bg-zinc-800 w-[120px] h-[50px] p-1">
+                <option value="copper">Copper</option>
+                <option value="silver">Silver</option>
+                <option value="gold">Gold</option>
+            </select>
+        </form>
+        <button class="border-2 border-green-500 text-xl px-2" onclick="submitForm('/characters/{{ data.uuid }}/add_coins')">
+            <i class="fa-solid fa-piggy-bank"></i>
+        </button>
+    </div>
+    {% endwith %}
+
+    {% with values=data.inventory.inventory %}
+    <div>
+        <div class="flex justify-center gap-3 mt-5 mb-1">
+            <p class="text-center text-xl">Inventory</p>
+            <a href="/characters/{{ data.uuid }}/add_inventory_item" class="border-2 border-green-500 text-xl px-2">
+                    <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+        {% for name, item in values.items() %}
+            <div class="grid grid-cols-6 mb-3 mx-2">
+                <p class="text-lg underline text-green-500 col-span-4">
+                    {{item.value}} {{ name }}
+                </p>
+
+                <div>
+                    {% if item.value or item.value == 1 %}
+                    <form method="POST" action="/characters/{{ data.uuid }}/increase_inventory_item">
+                        <input type="hidden" name="item" value="{{ name }}">
+                        <button class="border-2 border-green-500 text-xl px-2" type="submit">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <form method="POST" action="/characters/{{ data.uuid }}/decrease_inventory_item">
+                        <input type="hidden" name="item" value="{{ name }}">
+                        <button class="border border-red-500 text-xl px-2" type="submit">
+                            {% if item.value and item.value > 1 %}<i class="fa-solid fa-minus"></i>{% else %}<i class="fa-solid fa-trash"></i>{% endif %}
+                        </button>
+                    </form>
+                </div>
+
+                <p class="col-span-6 pl-5">{{item.description}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endwith %}
+
+    <script>
+        function submitForm(endpoint) {
+            const form = document.getElementById('coins');
+            form.action = endpoint;
+            form.submit();
+        }
+    </script>
+
+
     {% include 'character_sheet/navigation.html' %}
 </main>
 {% endblock %}
