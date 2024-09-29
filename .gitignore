@@ -162,4 +162,13 @@ cython_debug/
 .idea/
 
 # TODO: add when finished with database (HA-HA) config
-# src/database/sheets
+src/database/sheets/abilities.json
+src/database/sheets/character.json
+src/database/sheets/combat.json
+src/database/sheets/consumables.json
+src/database/sheets/inventory.json
+src/database/sheets/melee_attacks.json
+src/database/sheets/passives.json
+src/database/sheets/skills.json
+src/database/sheets/spells.json
+src/database/sheets/stats.json
