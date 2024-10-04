@@ -10,6 +10,13 @@
         "reset_rule": "d4/dawn"
     },
     "Arrows": {
-        "value": 34
+        "total": 0,
+        "value": 34,
+        "reset_rule": ""
+    },
+    "Inspiration": {
+        "total": 10,
+        "value": 1,
+        "reset_rule": ""
     }
 }

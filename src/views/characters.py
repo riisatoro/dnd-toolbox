@@ -136,7 +136,7 @@ template_mapper = {
     "combat": "character_sheet/combat.html",
     "abilities": "character_sheet/abilities.html",
     "inventory": "character_sheet/inventory.html",
-    # "add_inventory_item": "character_sheet/add_inventory_item.html",
+    "add_inventory_item": "character_sheet/add_inventory_item.html",
 }
 
 

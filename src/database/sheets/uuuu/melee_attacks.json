@@ -1,1 +1,9 @@
-{}
+{
+    "Short Bow": {
+        "hit_bonus": 7,
+        "damage_bonus": 5,
+        "damage": "d6",
+        "damage_type": "piercing",
+        "distance": "80/320 ft."
+    }
+}

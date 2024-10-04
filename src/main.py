@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from database.caching import save_sheet
 from database.listing import get_available_characters
 from views.characters import router as characters_router
+from views.new_character import router as new_character_router
 
 
 app = FastAPI()
@@ -36,3 +37,4 @@ def get_characters(request: Request):
 
 
 app.include_router(characters_router)
+app.include_router(new_character_router)

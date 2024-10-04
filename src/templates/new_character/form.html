@@ -1,0 +1,222 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="mx-2 my-3">
+    <form method="POST" action="/new-character/add" class="grid grid-cols-2 gap-2">
+        <p class="text-xl border-b col-span-2 text-orange-500">Base Info</p>
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Rage" class="p-1 text-black">
+
+        <label>Class</label>
+        <input type="text" name="class_" placeholder="Barbarian" class="p-1 text-black">
+
+        <label>Level</label>
+        <input id="level" type="number" name="level" placeholder="2" class="p-1 text-black">
+
+        <small class="col-span-2 text-end">You can add subclass later</small>
+
+        <label>Alignment</label>
+        <select name="alignment" class="text-gray-400" class="p-1 text-black">
+            <option value="Lawful Good">Lawful Good</option>
+            <option value="Neutral Good">Neutral Good</option>
+            <option value="Chaotic Good">Chaotic Good</option>
+            <option value="Lawful Neutral">Lawful Neutral</option>
+            <option value="Neutral">Neutral</option>
+            <option value="Chaotic Neutral">Chaotic Neutral</option>
+            <option value="Lawful Evil">Lawful Evil</option>
+            <option value="Neutral Evil">Neutral Evil</option>
+            <option value="Chaotic Evil">Chaotic Evil</option>
+        </select>
+
+        <label>Background</label>
+        <input type="text" name="background" placeholder="Outlander" class="p-1 text-black">
+
+        <p class="text-xl border-b col-span-2 text-orange-500">Stats</p>
+        <div class="col-span-2">
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Strength</label>
+                <input type="number" name="str_" placeholder="10" class="stat_value text-black">
+                <p id="str_">0</p>
+                <div><input type="checkbox" name="str_save" value="1">Saving</div>
+            </div>
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Dexterity</label>
+                <input type="number" name="dex_" placeholder="10" class="stat_value text-black">
+                <p id="dex_">0</p>
+                <div><input type="checkbox" name="dex_save" value="1">Saving</div>
+            </div>
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Constitution</label>
+                <input type="number" name="con_" placeholder="10" class="stat_value text-black">
+                <p id="con_">0</p>
+                <div><input type="checkbox" name="con_save" value="1">Saving</div>
+            </div>
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Intelligence</label>
+                <input type="number" name="int_" placeholder="10" class="stat_value text-black">
+                <p id="int_">0</p>
+                <div><input type="checkbox" name="int_save" value="1">Saving</div>
+            </div>
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Wisdom</label>
+                <input type="number" name="wis_" placeholder="10" class="stat_value text-black">
+                <p id="wis_">0</p>
+                <div><input type="checkbox" name="wis_save" value="1">Saving</div>
+            </div>
+            <div class="flex justify-between text-center my-1">
+                <label class="col-span-2 w-[80px] text-left">Charisma</label>
+                <input type="number" name="cha_" placeholder="10" class="stat_value text-black">
+                <p id="cha_">0</p>
+                <div><input type="checkbox" name="cha_save" class>Saving</div>
+            </div>
+        </div>
+        
+        <p class="text-xl border-b col-span-2 text-orange-500">Skills</p>
+        <div class="col-span-2">
+            <div class="grid grid-cols-3">
+                <p>name</p>
+                <!-- <p>mod</p> -->
+                <p class="text-center">+ prof</p>
+                <p class="text-center">x2 prof</p>
+                <hr class="col-span-3"/>
+                
+                <p>Acrobatics</p>
+                <!-- <p class="skill_value dex_ acrobatics_proficient acrobatics_expert"></p> -->
+                <input type="checkbox" name="acrobatics_proficient" class="skill_update">
+                <input type="checkbox" name="acrobatics_expert" class="skill_update">
+
+                <p>Animal Handling</p>
+                <!-- <p class="skill_value wis_ animal_handling_proficient animal_handling_expert"></p> -->
+                <input type="checkbox" name="animal_handling_proficient" class="skill_update">
+                <input type="checkbox" name="animal_handling_expert" class="skill_update">
+
+                <p>Arcana</p>
+                <!-- <p class="skill_value int_ arcana_proficient arcana_expert"></p> -->
+                <input type="checkbox" name="arcana_proficient" class="skill_update">
+                <input type="checkbox" name="arcana_expert" class="skill_update">
+
+                <p>Athletics</p>
+                <!-- <p class="skill_value str_ athletics_proficient athletics_expert"></p> -->
+                <input type="checkbox" name="athletics_proficient" class="skill_update">
+                <input type="checkbox" name="athletics_expert" class="skill_update">
+
+                <p>Deception</p>
+                <!-- <p class="skill_value cha_ deception_proficient deception_expert"></p> -->
+                <input type="checkbox" name="deception_proficient" class="skill_update">
+                <input type="checkbox" name="deception_expert" class="skill_update">
+
+                <p>History</p>
+                <!-- <p class="skill_value int_ history_proficient history_expert"></p> -->
+                <input type="checkbox" name="history_proficient" class="skill_update">
+                <input type="checkbox" name="history_expert" class="skill_update">
+
+                <p>Insight</p>
+                <!-- <p class="skill_value wis_ insight_proficient insight_expert"></p> -->
+                <input type="checkbox" name="insight_proficient" class="skill_update">
+                <input type="checkbox" name="insight_expert" class="skill_update">
+
+                <p>Intimidation</p>
+                <!-- <p class="skill_value cha_ intimidation_proficient intimidation_expert"></p> -->
+                <input type="checkbox" name="intimidation_proficient" class="skill_update">
+                <input type="checkbox" name="intimidation_expert" class="skill_update">
+
+                <p>Investigation</p>
+                <!-- <p class="skill_value int_ investigation_proficient investigation_expert"></p> -->
+                <input type="checkbox" name="investigation_proficient" class="skill_update">
+                <input type="checkbox" name="investigation_expert" class="skill_update">
+
+                <p>Medicine</p>
+                <!-- <p class="skill_value wis_ medicine_proficient medicine_expert"></p> -->
+                <input type="checkbox" name="medicine_proficient" class="skill_update">
+                <input type="checkbox" name="medicine_expert" class="skill_update">
+
+                <p>Nature</p>
+                <!-- <p class="skill_value int_ nature_proficient nature_expert"></p> -->
+                <input type="checkbox" name="nature_proficient" class="skill_update">
+                <input type="checkbox" name="nature_expert" class="skill_update">
+
+                <p>Perception</p>
+                <!-- <p class="skill_value wis_ perception_proficient perception_expert"></p> -->
+                <input type="checkbox" name="perception_proficient" class="skill_update">
+                <input type="checkbox" name="perception_expert" class="skill_update">
+
+                <p>Performance</p>
+                <!-- <p class="skill_value cha_ performance_proficient performance_expert"></p> -->
+                <input type="checkbox" name="performance_proficient" class="skill_update">
+                <input type="checkbox" name="performance_expert" class="skill_update">
+
+                <p>Persuasion</p>
+                <!-- <p class="skill_value cha_ persuasion_proficient persuasion_expert"></p> -->
+                <input type="checkbox" name="persuasion_proficient" class="skill_update">
+                <input type="checkbox" name="persuasion_expert" class="skill_update">
+
+                <p>Religion</p>
+                <!-- <p class="skill_value int_ religion_proficient religion_expert"></p> -->
+                <input type="checkbox" name="religion_proficient" class="skill_update">
+                <input type="checkbox" name="religion_expert" class="skill_update">
+
+                <p>Sleight of Hand</p>
+                <!-- <p class="skill_value dex_ sleight_of_hand_proficient sleight_of_hand_expert"></p> -->
+                <input type="checkbox" name="sleight_of_hand_proficient" class="skill_update">
+                <input type="checkbox" name="sleight_of_hand_expert" class="skill_update">
+
+                <p>Stealth</p>
+                <!-- <p class="skill_value dex_ stealth_proficient stealth_expert"></p> -->
+                <input type="checkbox" name="stealth_proficient" class="skill_update">
+                <input type="checkbox" name="stealth_expert" class="skill_update">
+
+                <p>Survival</p>
+                <!-- <p class="skill_value wis_ survival_proficient survival_expert"></p> -->
+                <input type="checkbox" name="survival_proficient" class="skill_update">
+                <input type="checkbox" name="survival_expert" class="skill_update">
+
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    const statValue = document.querySelectorAll('.stat_value');
+    statValue.forEach((stat) => {
+        stat.addEventListener('input', (e) => {
+            const statId = e.target.name;
+            const statValue = e.target.value;
+            const statModifier = Math.floor((statValue - 10) / 2);
+            document.getElementById(statId).innerText = statModifier > 0 ? `+${statModifier}` : statModifier;
+        });
+    });
+
+    /* when checkbox with class skill_update is checked or unchecked */
+    /* get the p with class as checkbox name */
+    /* get all classes from the p excluding the skill_valie */
+
+    // const skillUpdate = document.querySelectorAll('.skill_update');
+    // skillUpdate.forEach((skill) => {
+    //     skill.addEventListener('change', (e) => {
+    //         const skillName = e.target.name;
+    //         const skillValue = document.querySelector(`.${skillName}`);
+    //         const skillClasses = skillValue.classList;
+            
+    //         let value = 2 + (parseInt(document.getElementById("level").value) -1) / 4;
+    //         skillClasses.forEach(element => {
+    //             if (element[element.length - 1] === "_") {
+    //                 value += parseInt(document.getElementById(element).innerText);
+    //             }
+    //         });
+
+    //         console.log(value);
+
+    //         skillValue.innerText = value > 0 ? `+${value}` : value;
+            
+
+            // const skillModifier = Math.floor((parseInt(skillValue.innerText) - 10) / 2);
+            // const proficient = skillClasses.contains(skillName) ? 2 : 0;
+            // const expert = skillClasses.contains(skillName) ? 2 : 0;
+            // const total = skillModifier + proficient + expert;
+        });
+    });
+</script>
+{% endblock %}

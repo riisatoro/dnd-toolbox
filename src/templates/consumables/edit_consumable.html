@@ -9,10 +9,10 @@
         <input type="text" name="name" placeholder="Rage" class="p-1 text-black" value="{{ key }}">
         
         <label>Value</label>
-        <input type="number" name="total" placeholder="2" class="p-1 text-black" value="{{ form.value }}">
+        <input type="number"  name="value" placeholder="2" class="p-1 text-black" value="{{ form.value }}">
 
         <label>Total value (optional)</label>
-        <input type="number" name="value" placeholder="2" class="p-1 text-black" value="{{ form.total }}">
+        <input type="number" name="total" placeholder="2" class="p-1 text-black" value="{% if form.total %}{{ form.total }}{% else %}0{% endif %}">
 
         <label>Rules of restoration (optional)</label>
         <input type="text" name="reset_rule" placeholder="long rest" class="p-1 text-black" value="{{ form.reset_rule }}">
