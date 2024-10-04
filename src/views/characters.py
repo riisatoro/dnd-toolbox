@@ -4,71 +4,21 @@ from fastapi.templating import Jinja2Templates
 from starlette import status
 
 from database.caching import get_sheet
-from database.listing import get_available_characters
+from views.health import router as health_router
+from views.melee import router as melee_router
+from views.consumables import router as consumables_router
 
 
-router = APIRouter(prefix="/characters")
+router = APIRouter(prefix="/characters/{character_id}")
 templates = Jinja2Templates(directory="templates")
 
 
-@router.get("/")
-def get_characters(request: Request):
-    characters = get_available_characters()
-    return templates.TemplateResponse("character_sheet/characters.html", {"request": request, "characters": characters})
+router.include_router(melee_router)
+router.include_router(health_router)
+router.include_router(consumables_router)
 
 
-@router.get("/{character_id}/{template}")
-def get_character_sheet(
-        request: Request,
-        character_id: str,
-        template: str,
-):
-    sheet = get_sheet(character_id)
-    template_mapper = {
-        "base": "character_sheet/base.html",
-        "combat": "character_sheet/combat.html",
-        "abilities": "character_sheet/abilities.html",
-        "inventory": "character_sheet/inventory.html",
-        "add_inventory_item": "character_sheet/add_inventory_item.html",
-    }
-
-    return templates.TemplateResponse(template_mapper[template], {"request": request, "data": sheet.render()})
-
-
-@router.post("/{character_id}/add_health")
-def add_character_health(
-        request: Request,
-        character_id: str,
-        health: int = Form(...),
-):
-    sheet = get_sheet(character_id)
-    sheet.add_health(health)
-    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
-
-
-@router.post("/{character_id}/add_damage")
-def add_character_damage(
-        request: Request,
-        character_id: str,
-        health: int = Form(...),
-):
-    sheet = get_sheet(character_id)
-    sheet.add_damage(health)
-    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
-
-
-@router.post("/{character_id}/add_temporary_hp")
-def add_character_temporary_hp(
-        request: Request,
-        character_id: str,
-        health: int = Form(...),
-):
-    sheet = get_sheet(character_id)
-    sheet.add_temporary(health)
-    return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
-
-
-@router.post("/{character_id}/add_spell_slot")
+@router.post("/add_spell_slot")
 def add_spell_slot(
         request: Request,
         character_id: str,
@@ -79,7 +29,7 @@ def add_spell_slot(
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/remove_spell_slot")
+@router.post("/remove_spell_slot")
 def remove_spell_slot(
         request: Request,
         character_id: str,
@@ -90,7 +40,7 @@ def remove_spell_slot(
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/restore_spell_slots")
+@router.post("/restore_spell_slots")
 def restore_spell_slots(
         request: Request,
         character_id: str,
@@ -100,7 +50,7 @@ def restore_spell_slots(
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/remove_consumable")
+@router.post("/remove_consumable")
 def remove_consumable(
         request: Request,
         character_id: str,
@@ -111,7 +61,7 @@ def remove_consumable(
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/add_consumable")
+@router.post("/add_consumable")
 def add_consumable(
         request: Request,
         character_id: str,
@@ -122,7 +72,7 @@ def add_consumable(
     return RedirectResponse(f"/characters/{character_id}/combat", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/add_coins")
+@router.post("/add_coins")
 def add_coins(
         request: Request,
         character_id: str,
@@ -134,7 +84,7 @@ def add_coins(
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/remove_coins")
+@router.post("/remove_coins")
 def remove_coins(
         request: Request,
         character_id: str,
@@ -146,7 +96,7 @@ def remove_coins(
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/increase_inventory_item")
+@router.post("/increase_inventory_item")
 def increase_inventory_item(
         request: Request,
         character_id: str,
@@ -157,7 +107,7 @@ def increase_inventory_item(
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/decrease_inventory_item")
+@router.post("/decrease_inventory_item")
 def decrease_inventory_item(
         request: Request,
         character_id: str,
@@ -168,7 +118,7 @@ def decrease_inventory_item(
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/{character_id}/add_inventory_item")
+@router.post("/add_inventory_item")
 def add_inventory_item(
         request: Request,
         character_id: str,
@@ -179,3 +129,48 @@ def add_inventory_item(
     sheet = get_sheet(character_id)
     sheet.add_inventory_item(item, value, description)
     return RedirectResponse(f"/characters/{character_id}/inventory", status_code=status.HTTP_302_FOUND)
+
+
+template_mapper = {
+    "base": "character_sheet/base.html",
+    "combat": "character_sheet/combat.html",
+    "abilities": "character_sheet/abilities.html",
+    "inventory": "character_sheet/inventory.html",
+    # "add_inventory_item": "character_sheet/add_inventory_item.html",
+}
+
+
+@router.get("/base")
+def get_character_sheet(
+        request: Request,
+        character_id: str,
+):
+    sheet = get_sheet(character_id)
+    return templates.TemplateResponse(template_mapper['base'], {"request": request, "data": sheet.render()})
+
+
+@router.get("/combat")
+def get_character_sheet(
+        request: Request,
+        character_id: str,
+):
+    sheet = get_sheet(character_id)
+    return templates.TemplateResponse(template_mapper['combat'], {"request": request, "data": sheet.render()})
+
+
+@router.get("/abilities")
+def get_character_sheet(
+        request: Request,
+        character_id: str,
+):
+    sheet = get_sheet(character_id)
+    return templates.TemplateResponse(template_mapper['abilities'], {"request": request, "data": sheet.render()})
+
+
+@router.get("/inventory")
+def get_character_sheet(
+        request: Request,
+        character_id: str,
+):
+    sheet = get_sheet(character_id)
+    return templates.TemplateResponse(template_mapper['inventory'], {"request": request, "data": sheet.render()})

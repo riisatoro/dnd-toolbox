@@ -1,6 +1,9 @@
 {% with values=data.consumables %}
-<div>
-    <p class="text-xl my-2">Consumables</p>
+<div class="mx-2 my-3">
+    <div class="flex justify-between">
+        <p class="text-xl mb-2">Combat Consumables</p>
+        <a href="/characters/{{ data.uuid }}/consumables" class="text-blue-500">Edit</a>
+    </div>
     <hr />
     {% for name, consumable in values.items() %}
     <div class="border-b border-white ml-5 my-1 grid grid-cols-4 mb-1 pb-1">

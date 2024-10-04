@@ -2,11 +2,11 @@
 
 {% block title %}Character Sheet{% endblock %}
 {% block content %}
-<main class="max-w-[600px] m-auto">
+<main class="max-w-[600px] m-auto mb-[60px]">
     {% include 'character_sheet/components/heading.html' %}
     {% include 'character_sheet/components/stats.html' %}
-    {% include 'character_sheet/components/passives.html' %}
     {% include 'character_sheet/components/skills.html' %}
-    {% include 'character_sheet/navigation.html' %}
+    {% include 'character_sheet/components/passives.html' %}
 </main>
+{% include 'character_sheet/navigation.html' %}
 {% endblock %}

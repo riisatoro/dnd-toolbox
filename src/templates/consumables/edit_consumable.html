@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block content %}
+{% include 'character_sheet/components/heading.html' %}
+{% include 'character_sheet/components/stats.html' %}
+
+<div class="mx-2 my-3">
+    <form method="POST" action="/characters/{{ data.uuid }}/consumables/edit" class="grid grid-cols-2 gap-2">
+        <label>Consumable</label>
+        <input type="text" name="name" placeholder="Rage" class="p-1 text-black" value="{{ key }}">
+        
+        <label>Value</label>
+        <input type="number" name="total" placeholder="2" class="p-1 text-black" value="{{ form.value }}">
+
+        <label>Total value (optional)</label>
+        <input type="number" name="value" placeholder="2" class="p-1 text-black" value="{{ form.total }}">
+
+        <label>Rules of restoration (optional)</label>
+        <input type="text" name="reset_rule" placeholder="long rest" class="p-1 text-black" value="{{ form.reset_rule }}">
+
+        <button type="submit" class="col-span-2 mx-5 p-3 bg-orange-500">Add</button>
+    </form>
+</div>
+
+{% endblock %}

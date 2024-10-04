@@ -9,12 +9,13 @@
         <div>
             <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="text" name="item" placeholder="Item">
             <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="number" name="value" value="0" min="0" step="1" placeholder="Value">
+            <input type="checkbox" name="allow_add_remove_value">Allow addition or subtraction
             <input class="border-2 border-white bg-zinc-800 m-2 p-2" type="text" name="description" placeholder="Description">
         </div>
         <button class="border-2 border-green-500 text-xl px-2 mt-2" type="submit">
             Create new item
         </button>
 
+    </main>
     {% include 'character_sheet/navigation.html' %}
-</main>
 {% endblock %}

@@ -1,6 +1,9 @@
 {% with values=data.melee %}
-<div>
-    <p class="text-xl mb-2">Melee</p>
+<div class="mx-2 my-3">
+    <div class="flex justify-between">
+        <p class="text-xl mb-2">Melee</p>
+        <a href="/characters/{{ data.uuid }}/melee" class="text-blue-500">Edit</a>
+    </div>
     <hr />
     {% for name, attack in values.items() %}
     <div class="border-b border-white ml-5 my-1 grid grid-cols-4">

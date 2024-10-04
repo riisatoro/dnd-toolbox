@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block content %}
+{% include 'character_sheet/components/heading.html' %}
+{% include 'character_sheet/components/stats.html' %}
+
+<div class="mx-2 my-3">
+    <form method="POST" action="/characters/{{ data.uuid }}/melee/new" class="grid grid-cols-2 gap-2">
+        <label>Weapon</label>
+        <input type="text" name="name" placeholder="Sword" class="p-1 text-black">
+
+        <label>Bonus to hit</label>
+        <input type="number" name="hit_bonus" placeholder="7" class="p-1 text-black">
+
+        <label>Damage Bonus</label>
+        <input type="number" name="damage_bonus" placeholder="5" class="p-1 text-black">
+
+        <label>Hit Dice</label>
+        <select name="hit_dice" class="text-gray-400" class="p-1 text-black">
+            <option value="d4">d4</option>
+            <option value="d6">d6</option>
+            <option value="d8">d8</option>
+            <option value="d10">d10</option>
+            <option value="d12">d12</option>
+            <option value="d20">d20</option>
+        </select>
+
+        <label>Range</label>
+        <input type="text" name="distance" placeholder="5ft." class="p-1 text-black">
+
+        <label>Damage Type</label>
+        <input type="text" name="damage_type" placeholder="Slashing" class="p-1 text-black">
+
+        <button type="submit" class="col-span-2 mx-5 p-3 bg-orange-500">Add</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% with values=data.abilities %}
+    <div>
+        <p class="text-xl my-2 text-center">Abilities</p>
+        <hr />
+        {% for name, description in values.abilities.items() %}
+            <p class="text-lg underline text-green-500 mt-2">{{ name }}</p>
+            <ul class="ml-5 list-disc">
+                {% for option in description %}
+                    <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endwith %}

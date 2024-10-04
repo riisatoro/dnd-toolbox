@@ -5,11 +5,11 @@
         "reset_rule": "long rest"
     },
     "Bracelet of the Animal Speaking": {
+        "total": 4,
         "value": 4,
-        "total": 7,
         "reset_rule": "d4/dawn"
     },
     "Arrows": {
-        "value": 36
+        "value": 34
     }
 }

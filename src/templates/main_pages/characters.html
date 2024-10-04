@@ -3,10 +3,8 @@
 {% block title %}Character List{% endblock %}
 
 {% block content %}
-<div>
-    <h1>Your characters</h1>
-    <hr />
-    <div class="p-5">
+<div class="px-3 py-3">
+    <div>
     {% for uuid, character in characters.items() %}
         <a href="/characters/{{ uuid }}/base">
             <div class="flex gap-2 border-b border-white">

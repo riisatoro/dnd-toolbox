@@ -1,14 +1,14 @@
 {% with values=data.skills.skills %}
-<div class="mt-5 grid grid-cols-2">
+<div class="mx-2 my-3 grid grid-cols-2">
     {% for skill, value in values.items() %}
     <div class="flex border-b border-white p-1 px-2">
         <div class="w-[130px]">{{ skill }}</div>
         <div>{{ value.modifier }}</div>
         <div class="ml-2">
             {% if value.expertise %}
-            <i class="fa-solid fa-check-double"></i>
+            <i class="fa-solid fa-check-double text-orange-500"></i>
             {% elif value.proficient %}
-            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-check text-orange-500"></i>
             {% else %}
             {% endif %}
         </div>

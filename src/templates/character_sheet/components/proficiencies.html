@@ -1,0 +1,10 @@
+{% with values=data.abilities %}
+    <div>
+        <p class="text-xl my-2 text-center">Proficiencies</p>
+        <hr />
+        {% for name, description in values.proficiencies.items() %}
+            <p class="text-lg underline text-green-500 mt-2">{{ name }}</p>
+            <p class="ml-2">{% for option in description %}{{ option }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+        {% endfor %}
+    </div>
+{% endwith %}

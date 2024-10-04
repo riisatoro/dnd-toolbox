@@ -113,11 +113,17 @@ class Stats:
             }
             for k, v in self.data["stats.json"].items()
         }
-    
+
 
 class MeleeAttack:
     def render_melee(self) -> dict:
         return self.data["melee_attacks.json"]
+    
+    def add_edit_melee(self, key, values):
+        self.data["melee_attacks.json"][key] = values
+    
+    def delete_melee(self, key):
+        del self.data["melee_attacks.json"][key]
 
 
 class Consumables:
@@ -125,11 +131,20 @@ class Consumables:
         return self.data["consumables.json"]
     
     def add_consumable(self, key: str) -> None:
-        self.data["consumables.json"][key]["value"] += 1
+        total = self.data["consumables.json"][key].get("total", None)
+        value = self.data["consumables.json"][key]["value"]
+        if total is None or value < total:
+            self.data["consumables.json"][key]["value"] += 1
     
     def remove_consumable(self, key: str) -> None:
         if self.data["consumables.json"][key]["value"] > 0:
             self.data["consumables.json"][key]["value"] -= 1
+    
+    def delete_consumable(self, key: str) -> None:
+        del self.data["consumables.json"][key]
+
+    def add_edit_consumable(self, key, values):
+        self.data["consumables.json"][key] = values
 
 
 class Skills:

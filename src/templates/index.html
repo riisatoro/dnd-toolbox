@@ -21,10 +21,13 @@
             font-style: normal;
         }
     </style>
-
 </head>
-<body class="bg-zinc-900 text-white p-2">
-{% block content %}{% endblock %}
+<body class="bg-zinc-900 text-white">
+    <header class="flex justify-between mx-3 my-2">
+        <a href="/"><i class="fa fa-home"></i></a>
+    </header>
+    <hr />
+    {% block content %}{% endblock %}
 </body>
 {% block script %}{% endblock %}
 </html>

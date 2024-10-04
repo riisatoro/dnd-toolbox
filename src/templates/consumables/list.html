@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block content %}
+{% include 'character_sheet/components/heading.html' %}
+{% include 'character_sheet/components/stats.html' %}
+<div class="mb-5 pb-5">
+    <div class="text-center text-xl flex justify-center content-middle m-2">
+        <p class="underline">Consumables</p>
+        <a href="/characters/{{ data.uuid }}/consumables/new" class="bg-green-500 px-2 mx-2 rounded"><i class="fa fa-plus"></i></a>
+    </div>
+    {% for name, info in data.consumables.items() %}
+        <div class="flex gap-2 border-b border-white m-3 justify-between">
+            <div>
+                <p class="text-xl">{{ name }}</p>
+                {% if info.total %}Max value: {{ info.total }}{% else %}<p>No max consumables</p>{% endif %}
+                <p>Current value: {{ info.value }}</p>
+                {% if info.reset_rule %}<p>Reset rules: {{ info.reset_rule }}</p>{% else %}<p>No reset rules</p>{% endif %}
+            </div>
+            <div>
+                <a href="/characters/{{ data.uuid }}/consumables/{{ name }}/edit" class="bg-orange-500 p-2 rounded" class="block"><i class="fa fa-pen"></i></a>
+                <form method="POST" action="/characters/{{ data.uuid }}/consumables/{{ name }}/delete" class="inline">
+                    <button type="submit" class="bg-red-500 p-2 rounded"><i class="fa fa-trash"></i></button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% include 'main_pages/navigation.html' %}
+{% endblock %}

@@ -1,9 +1,9 @@
 {% with values = data.stats %}
-<div class="grid grid-cols-3 justify-evenly gap-2 text-center">
+<div class="mx-2 grid grid-cols-3 justify-evenly gap-2 text-center">
     {% for stat, value in values.items() %}
     <div>
-        <div class="border-2 {% if value.saving %}border-green-500{% else %}border-white{% endif %} content-center text-xl">
-            <p>{% if value.modifier > 0 %}+ {% endif %}{{ value.modifier }} {% if value.saving %} / <span class="text-green-500">+ {{ value.saving_modifier }}</span>{% endif %} </p>
+        <div class="border-2 {% if value.saving %}border-orange-500{% else %}border-white{% endif %} content-center text-xl">
+            <p>{% if value.modifier > 0 %}+ {% endif %}{{ value.modifier }} {% if value.saving %} / <span class="text-orange-500">+ {{ value.saving_modifier }}</span>{% endif %} </p>
             <p>{{ stat }} ({{value.value}})</p>
         </div>
     </div>
